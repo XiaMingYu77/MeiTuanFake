@@ -1,0 +1,93 @@
+{
+  "id": "3863771",
+  "name": "外卖",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3167218",
+      "name": "午餐",
+      "font_class": "wucan",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "3900917",
+      "name": "休闲饮品",
+      "font_class": "xiuxianyinpin",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "5060086",
+      "name": "酒",
+      "font_class": "jiu",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "5214661",
+      "name": "吐司",
+      "font_class": "tusi",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "6338138",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "7699320",
+      "name": "口红",
+      "font_class": "kouhong",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "17474105",
+      "name": "跑腿APP",
+      "font_class": "paotuiAPP",
+      "unicode": "e6bb",
+      "unicode_decimal": 59067
+    },
+    {
+      "icon_id": "19463516",
+      "name": "甜点",
+      "font_class": "tiandian",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "24111653",
+      "name": "夜宵",
+      "font_class": "yexiao",
+      "unicode": "fb2d",
+      "unicode_decimal": 64301
+    },
+    {
+      "icon_id": "27856309",
+      "name": "支持医院药店",
+      "font_class": "zhichiyiyuanyaodian",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "30111080",
+      "name": "新鲜果蔬_新鲜水果苹果",
+      "font_class": "xinxianguoshu_xinxianshuiguopingguo",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "30111081",
+      "name": "新鲜果蔬_新鲜水果橙子",
+      "font_class": "xinxianguoshu_xinxianshuiguochengzi",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    }
+  ]
+}
