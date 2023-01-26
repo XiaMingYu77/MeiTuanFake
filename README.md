@@ -1,40 +1,35 @@
 # MeiTuanFake
 
-This template should help get you started developing with Vue 3 in Vite.
+一个仿美团App的Web应用
 
-## Recommended IDE Setup
+一个纯前端项目，暂留留给后端的接入点，使用静态资源模拟
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+适合于前端开发人员用于熟悉项目结构
 
-## Type Support for `.vue` Imports in TS
++ 使用了 Vuex 用于管理全局数据
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
++ 使用 Vant 进行基本的样式功能实现
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
++ 使用网络连接阿里矢量图库进行图标加载
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
++ 使用 Vue-router 进行路由管理，实现单页应用
 
-## Customize configuration
++ 进行了屏幕自适应（仅限于竖屏手机）
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+  1. amfe-flexible
 
-## Project Setup
+     配置可伸缩布局方案，将 1rem 设为 viewWidth/10
 
-```sh
-npm install
-```
+  2. postcss-pxtorem
 
-### Compile and Hot-Reload for Development
+     postcss 的插件，用于将像素单位生成 rem 单位
 
-```sh
-npm run dev
-```
++ 自制登陆背景（通过绘制canvas）
 
-### Type-Check, Compile and Minify for Production
++ 实现注册卡片拖动
 
-```sh
-npm run build
-```
+<img src="https://gcore.jsdelivr.net/gh/XiaMingYu77/My-Markdown-Picture/img/202301262058476.png" alt="image-20230126205811414" style="zoom:50%;" />  
+
+<img src="https://gcore.jsdelivr.net/gh/XiaMingYu77/My-Markdown-Picture/img/202301262100631.png" alt="image-20230126210031513" style="zoom:50%;" /> 
+
+<img src="https://gcore.jsdelivr.net/gh/XiaMingYu77/My-Markdown-Picture/img/202301262102217.png" alt="image-20230126210213144" style="zoom:50%;" />   
