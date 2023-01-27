@@ -83,7 +83,7 @@
                     background-image: radial-gradient(ellipse at 90% 90%, #e37f15ce, #ffd1399f);
 
                     .logTitle {
-                        font-size: 24px;
+                        font-size: 20px;
                         display: block;
                         padding: 10px 0;
                         text-align: center;
@@ -164,7 +164,7 @@
                     flex-direction: column;
 
                     .pull-tab {
-                        font-size: 24px;
+                        font-size: 20px;
                         padding-top: 5px;
                         height: 40px;
                         text-align: center;
