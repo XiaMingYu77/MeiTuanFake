@@ -94,6 +94,7 @@
   }
 
   .action-bar {
+    z-index: 100;
     position: static;
 
     .van-btn {
