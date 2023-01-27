@@ -128,7 +128,7 @@
 
                     .search {
                         width: 100%;
-                        height: 30px;
+                        
                         display: flex;
                         border-radius: 20px;
                         border: 1px solid #FFDC01;
@@ -152,8 +152,7 @@
                             border-radius: 20px;
                             border: 0;
                             width: 60px;
-                            line-height: 32px;
-                            height: 32px;
+                            padding: 5px 10px;
                         }
                     }
                 }
