@@ -34,7 +34,6 @@ export default (({ command, mode, ssrBuild }: any) => {
         resolvers: [VantResolver()],
       }),
     ],
-    publicDir: "public",
     server: {
       https: false, //(使用https)启用 TLS + HTTP/2。注意：当 server.proxy 选项 也被使用时，将会仅使用 TLS
       host: "0.0.0.0", // 监听所有地址
