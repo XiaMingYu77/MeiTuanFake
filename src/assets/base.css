@@ -23,3 +23,11 @@ a {
     text-decoration: none;
     color: #000;
 }
+
+*{
+    box-sizing: border-box;
+}
+
+.van-dialog {
+    width: var(--van-dialog-width) !important;
+}

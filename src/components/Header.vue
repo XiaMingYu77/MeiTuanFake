@@ -42,7 +42,7 @@ function changeEdit() {
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #d7d7d7;
-    padding-top: 20px;
+    padding: 20px 0 5px 0;
 
     .edit {
         font-size: 16px;

@@ -21,6 +21,7 @@
     border-radius: 10px;
 
     .icon {
+        width: 100%;
         margin-bottom: 10px;
     }
 

@@ -1,13 +1,17 @@
 <template>
     <div class="cartDetail">
         <div class="content">
-            <van-checkbox-group v-model="checked" @change="groupChange">
-                <div v-for="(item, index) in dataList" :key="item.id" class="item-bg">
-                    <ListItem :item="item" @item-val-change="handleChange" :show-check-box="true" :min="1"></ListItem>
-                </div>
-            </van-checkbox-group>
+            <div class="list">
+                <van-checkbox-group v-model="checked" @change="groupChange">
+                    <div v-for="(item, index) in dataList" :key="item.id" class="item-bg">
+                        <ListItem :item="item" @item-val-change="handleChange" :show-check-box="true" :min="1">
+                        </ListItem>
+                    </div>
+                </van-checkbox-group>
+            </div>
         </div>
-        <van-submit-bar :price="allPrise" button-text="提交订单" @submit="onSubmit" class="submit-order">
+        <van-submit-bar :price="allPrise" button-text="提交订单" @submit="onSubmit" class="submit-order"
+            v-if="!store.state.editState">
             <van-checkbox v-model="checkedAll" @change="checkedAllChanged">全选</van-checkbox>
         </van-submit-bar>
 
@@ -24,16 +28,37 @@
     height: 100%;
     font-size: 14px;
     flex: 1;
-    position: relative;
     overflow-y: auto;
-    padding: 20px 20px 55px;
+
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        flex: 1;
+        margin: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+
+        .list {
+            box-sizing: border-box;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #fff;
+            height: 100%;
+            overflow-y: scroll;
+
+            .item-bg:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+    }
 
     .submit-order {
         box-sizing: border-box;
-        position: fixed;
-        bottom: 48px;
+        position: static;
         padding-left: 30px;
-        :deep(.van-submit-bar__bar){
+
+        :deep(.van-submit-bar__bar) {
             padding-left: 0;
         }
 
@@ -45,10 +70,12 @@
 
     .submit-edit {
         .submit-order();
-        .blanck{
+
+        .blanck {
             flex: 1;
         }
     }
+
     .buy {
         position: fixed;
         bottom: 48px;
@@ -80,23 +107,11 @@
             line-height: 40px;
         }
     }
-
-    .content {
-        padding: 10px;
-        background-color: #fff;
-        border-radius: 10px;
-
-        .item-bg:not(:last-child) {
-            margin-bottom: 20px;
-        }
-    }
-
-    
 }
 </style>
 
 <script lang="ts" setup>
-import { ref, onMounted, computed, watch, toRef, onBeforeUnmount} from 'vue'
+import { ref, onMounted, computed, watch, toRef, onBeforeUnmount } from 'vue'
 import { useStore } from 'vuex'
 import ListItem from '@/components/ListItem.vue';
 import { showToast } from 'vant';
@@ -130,7 +145,7 @@ function getDataList() {
     })
     dataList.value = newList;
 
-    if(dataList.value.length === 0){ //如果长度为0要还原成空页面
+    if (dataList.value.length === 0) { //如果长度为0要还原成空页面
         emits('noData')
     }
 }
@@ -142,7 +157,7 @@ onMounted(() => {
     init();
 })
 
-onBeforeUnmount(()=>{
+onBeforeUnmount(() => {
     store.state.editState = false; //将状态还原
 })
 
@@ -175,26 +190,26 @@ const allPrise = computed(() => {
     countList.forEach((item: any) => {
         sum += item.num * item.price;
     })
-    return sum*100;
+    return sum * 100;
 });
 
 //对store进行监听，对编辑状态和cartMap的变化进行捕获
 //在vuex中集合类型会被再包装一个相应式，但是基本数据就不会了
 //因此在这里不能对editState单独进行追踪
-watch(store.state, (newState)=>{
-    if(newState.editState === true){ //正在编辑时默认是全不选
+watch(store.state, (newState) => {
+    if (newState.editState === true) { //正在编辑时默认是全不选
         setCancelAll();
-    }else{ //取消编辑状态时默认全选
+    } else { //取消编辑状态时默认全选
         setCheckedAll();
     }
 })
 
 //删除
-function onDelete(){
-    if(checked.value.length){
+function onDelete() {
+    if (checked.value.length) {
         store.commit("deleteGoods", getItemSelected());
         checked.value = [];
-    }else {
+    } else {
         showToast("未选中要删除的商品");
     }
 }
@@ -207,10 +222,10 @@ function getItemSelected() {
 
 //提交订单
 function onSubmit() {
-    if(checked.value.length){ //是否有选中
+    if (checked.value.length) { //是否有选中
         store.commit('submitCreateOrder', getItemSelected());
         router.push("/create_order");
-    }else{
+    } else {
         showToast("未选中商品");
     }
 }

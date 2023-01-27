@@ -1,10 +1,10 @@
 <template>
     <div class="food-list">
-        <van-tree-select v-model:main-active-index="activeIndex" :items="items" class="content"
-            @click-nav="navClick">
+        <van-tree-select v-model:main-active-index="activeIndex" :items="items" class="content" @click-nav="navClick">
             <template #content>
                 <div v-for="(item, index) in subItems" :key="item.id" class="item-bg">
-                    <ListItem :item="item" @itemAdd="handleAdd" @item-val-change="handleChange" :show-check-box="false" :min="0"></ListItem>
+                    <ListItem :item="item" @itemAdd="handleAdd" @item-val-change="handleChange" :show-check-box="false"
+                        :min="0"></ListItem>
                 </div>
             </template>
         </van-tree-select>
@@ -13,13 +13,23 @@
 
 <style lang="less" scoped>
 .food-list {
-    margin-top: 20px;
+    height: 40vh;
+    box-sizing:border-box;
+    display: flex;
 
-    .item-bg {
-        padding: 10px;
-    }
-    .item-bg:not(:last-child){
-        margin-bottom: 20px;
+    .content {
+        flex: 1;
+        .item-bg {
+            padding: 10px;
+        }
+
+        .item-bg:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        :deep(.van-tree-select__content){
+            overflow-y: scroll;
+        }
     }
 }
 
@@ -78,9 +88,9 @@ function handleAdd(id: number) {
 
 function handleChange(value: number, detail: any) {
     subItems.value.forEach((item: any, index: number) => {
-        if (item.id === detail.name){
+        if (item.id === detail.name) {
             item.num == value;
-            if(value == 0){
+            if (value == 0) {
                 item.add = true;
             }
         }
