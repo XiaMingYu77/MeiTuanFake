@@ -3,7 +3,7 @@
         <Header title="地址管理"></Header>
         <div class="content">
             <van-address-list v-model="chosenAddressId" :list="userAddrList" default-tag-text="默认" @add="onAdd"
-                @edit="onEdit" @click-item="itemClicked" />
+                @edit="onEdit" @click-item="itemClicked" :switchable="true" />
         </div>
     </div>
 </template>
@@ -44,20 +44,28 @@ onMounted(() => {
     if (type.value === 'select') {
         showToast('点击选择一个地址');
     }
+
+    clickedEdit = false;
 })
 
-function itemClicked(item:any) { //处理在type=='select'时的地址选择
-    if (type.value === 'select'){ //注意：这里的item是已经格式化后的，我们需要找到那个源
-        let id = item.id;
-        store.state.userAddress.forEach((addr:any)=>{
-            if(addr.id == id){
-                setSelectedAddr(addr);
+
+let clickedEdit = false;
+function itemClicked(item: any) { //处理在type=='select'时的地址选择
+    if (type.value === 'select') { //注意：这里的item是已经格式化后的，我们需要找到那个源
+        setTimeout(() => {
+            if (!clickedEdit) {
+                let id = item.id;
+                store.state.userAddress.forEach((addr: any) => {
+                    if (addr.id == id) {
+                        setSelectedAddr(addr);
+                    }
+                })
             }
-        })
+        }, 50)
     }
 }
 
-function setSelectedAddr(addr:any){
+function setSelectedAddr(addr: any) {
     store.commit('setSelectedAddr', addr); //上传修改
     showToast('选择地址成功');
     router.back(); //回到提交订单页
@@ -72,6 +80,7 @@ function onAdd() {
     });
 }
 function onEdit(item: any) {
+    clickedEdit = true;
     router.push({
         path: '/address_edit',
         query: {
@@ -101,6 +110,7 @@ function onEdit(item: any) {
     display: flex;
     flex-direction: column;
     background-color: #F5F5F5;
+    height: 100%;
 
     .content {
         flex: 1;

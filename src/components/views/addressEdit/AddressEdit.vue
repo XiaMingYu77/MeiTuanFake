@@ -80,5 +80,6 @@ function onDelete(info:any){
 
 .addrEdit{
     background-color: #F5F5F5;
+    height: 100%;
 }
 </style>
