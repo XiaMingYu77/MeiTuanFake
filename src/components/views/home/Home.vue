@@ -5,7 +5,7 @@
                 <div class="text">外卖</div>
                 <div :class="locationClass">
                     <van-icon name="location-o" />
-                    <span>长沙</span>
+                    <span>重庆</span>
                     <van-icon name="arrow" />
                 </div>
             </div>
@@ -128,7 +128,7 @@
 
                     .search {
                         width: 100%;
-                        
+
                         display: flex;
                         border-radius: 20px;
                         border: 1px solid #FFDC01;
@@ -220,7 +220,7 @@
 </style>
 
 <script setup lang="ts">
-import { reactive, ref,onMounted} from 'vue';
+import { reactive, ref, onMounted } from 'vue';
 import NavList from './components/NavList.vue'
 import Footer from '@/components/footer/Footer.vue'
 
@@ -295,8 +295,8 @@ let data = reactive({
             tab: "天天神券",
             data: [
                 {
-                    pic: "https://img1.baidu.com/it/u=1599947592,1695977044&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=440",
-                    title: "酸菜鱼",
+                    pic: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.cfcy168.com%2FUploadFiles%2F2020%2F2%2F15904074889874037.jpg&refer=http%3A%2F%2Fwww.cfcy168.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645421933&t=66b58fbba9dce6f6b397e38820de24dc",
+                    title: "隆江猪脚饭",
                     sales: "2888",
                     price: "20",
                     label: ["门店上新", "很下饭"],
@@ -388,7 +388,7 @@ let locationClass = ref('location'); //动态切换地址样式
 let searchTextStyle = ref('padding-left:15px')
 let heightBeging = 0;
 
-onMounted(()=>{
+onMounted(() => {
     heightBeging = getTop(searchPositionElement.value);
 })
 
@@ -403,14 +403,14 @@ function scroll() {
                 searchAreaClass.value = 'search-area-stay';
                 locationClass.value = 'location-stay';
                 searchTextStyle.value = `padding-left:100px`;
-            }else if (searchElementPosition > 25 && searchAreaClass.value === 'search-area-stay') {
+            } else if (searchElementPosition > 25 && searchAreaClass.value === 'search-area-stay') {
                 searchAreaClass.value = 'search-area';
                 locationClass.value = 'location';
             }
 
-            if(searchElementPosition > 25 && searchAreaClass.value === 'search-area'){ //上下滑动且在切换样式前
+            if (searchElementPosition > 25 && searchAreaClass.value === 'search-area') { //上下滑动且在切换样式前
                 let changedHeight = heightBeging - searchElementPosition;
-                let newPaddingLeft = changedHeight*2;
+                let newPaddingLeft = changedHeight * 2;
                 searchTextStyle.value = `padding-left:${newPaddingLeft}px`;
             }
             ticking = false;
@@ -422,7 +422,7 @@ function getTop(element: any) {
     return offset;
 }
 
-function show(){
+function show() {
     let searchElementPosition = getTop(searchPositionElement.value);
     console.log(searchElementPosition);
 }

@@ -6,7 +6,7 @@
 
 <style lang="less" scoped>
 .content {
-  height: 100%;
+  height: 100vh;
 }
 </style>
 

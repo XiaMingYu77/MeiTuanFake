@@ -46,10 +46,11 @@ declare module '@vue/runtime-core' {
     VanContactCard: typeof import('vant/es')['ContactCard']
     VanField: typeof import('vant/es')['Field']
     VanIcon: typeof import('vant/es')['Icon']
+    VanSidebar: typeof import('vant/es')['Sidebar']
+    VanSidebarItem: typeof import('vant/es')['SidebarItem']
     VanStepper: typeof import('vant/es')['Stepper']
     VanSubmitBar: typeof import('vant/es')['SubmitBar']
     VanTab: typeof import('vant/es')['Tab']
     VanTabs: typeof import('vant/es')['Tabs']
-    VanTreeSelect: typeof import('vant/es')['TreeSelect']
   }
 }

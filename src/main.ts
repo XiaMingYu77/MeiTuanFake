@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@/assets/base.css' //将像素单位生成 rem 单位
+import '@/assets/base.css'
 import 'amfe-flexible'      //将 1rem 设为 viewWidth/10
 
 import 'vant/es/dialog/style'

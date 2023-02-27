@@ -165,7 +165,7 @@
 
                     .pull-tab {
                         font-size: 20px;
-                        padding-top: 5px;
+                        padding-top: 7px;
                         height: 40px;
                         text-align: center;
                         color: #f5f5f5;

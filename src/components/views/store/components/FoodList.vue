@@ -1,24 +1,42 @@
 <template>
     <div class="food-list">
-        <van-tree-select v-model:main-active-index="activeIndex" :items="items" class="content" @click-nav="navClick">
-            <template #content>
+        <van-sidebar v-model="activeIndex" @change="navClick">
+            <van-sidebar-item title="热销套餐" />
+            <van-sidebar-item title="超级折扣" />
+        </van-sidebar>
+        <div class="content">
+            <div class="items">
                 <div v-for="(item, index) in subItems" :key="item.id" class="item-bg">
                     <ListItem :item="item" @itemAdd="handleAdd" @item-val-change="handleChange" :show-check-box="false"
                         :min="0"></ListItem>
                 </div>
-            </template>
-        </van-tree-select>
+            </div>
+        </div>
     </div>
 </template>
 
 <style lang="less" scoped>
 .food-list {
-    height: 40vh;
-    box-sizing:border-box;
+    height: 100%;
+    box-sizing: border-box;
     display: flex;
+
+
+    :deep(.van-sidebar) {
+        background-color: #F7F8FA;
+    }
 
     .content {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .items{
+            flex: 1 1 auto;
+            height: 0;
+            overflow-y: auto;
+        }
+
         .item-bg {
             padding: 10px;
         }
@@ -27,7 +45,7 @@
             margin-bottom: 20px;
         }
 
-        :deep(.van-tree-select__content){
+        :deep(.van-tree-select__content) {
             overflow-y: scroll;
         }
     }

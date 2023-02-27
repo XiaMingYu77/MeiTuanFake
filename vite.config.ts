@@ -5,24 +5,7 @@ import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 import { resolve } from 'path'
 
-
-
-// https://vitejs.dev/config/
-// export default defineConfig({
-
-//   plugins: [
-//     vue(),
-//     Components({
-//       resolvers: [VantResolver()],
-//     }),
-//   ],
-//   resolve: {
-//     alias: {
-//       '@': fileURLToPath(new URL('./src', import.meta.url))
-//     }
-//   },
-
-// })
+import legacy from '@vitejs/plugin-legacy';
 
 export default (({ command, mode, ssrBuild }: any) => {
   const env = loadEnv(mode, process.cwd());
@@ -33,6 +16,9 @@ export default (({ command, mode, ssrBuild }: any) => {
       Components({
         resolvers: [VantResolver()],
       }),
+      legacy({
+        targets:['> 0.2% and not dead']
+      })
     ],
     server: {
       https: false, //(使用https)启用 TLS + HTTP/2。注意：当 server.proxy 选项 也被使用时，将会仅使用 TLS
