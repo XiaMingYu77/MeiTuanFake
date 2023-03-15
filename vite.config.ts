@@ -3,6 +3,7 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
+import viteCompression from 'vite-plugin-compression'
 import { resolve } from 'path'
 
 import legacy from '@vitejs/plugin-legacy';
@@ -18,6 +19,9 @@ export default (({ command, mode, ssrBuild }: any) => {
       }),
       legacy({
         targets:['> 0.2% and not dead']
+      }),
+      viteCompression({
+        threshold: 1024000 // 对大于 1mb 的文件进行压缩
       })
     ],
     server: {

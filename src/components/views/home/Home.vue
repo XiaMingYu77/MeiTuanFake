@@ -224,6 +224,7 @@ import { reactive, ref, onMounted } from 'vue';
 import NavList from './components/NavList.vue'
 import Footer from '@/components/footer/Footer.vue'
 
+//测试用数据
 let data = reactive({
     big_list: [
         {
